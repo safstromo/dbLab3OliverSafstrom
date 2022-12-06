@@ -5,61 +5,47 @@ public class Main {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		boolean exit = false;
 
-		while (!exit) {
+		while (true) {
 			printMenu();
-			String menuInput = sc.nextLine();
 
-			switch (menuInput) {
-				case "1" -> add();
-				case "2" -> show();
+			switch (sc.nextLine()) {
+				case "1" -> addGame();
+				case "2" -> selectAllFromGame();
 				case "3" -> update();
 				case "4" -> remove();
-				case "e,E" -> exit = true;
+				case "e","E" -> System.exit(0);
 			}
 		}
-
-	}
-
-	private static void add() {
-		printAddMenu();
-		String input = sc.nextLine();
-		boolean exit = false;
-
-		switch (input) {
-			case "1" -> addGame();
-			case "2" -> addStudio();
-			case "e,E" -> exit = true;
-		}
-
 
 	}
 
 	private static void addGame() {
 		System.out.println("Enter game name: ");
 		String gameName = sc.nextLine();
+
 		System.out.println("Enter price: ");
 		double price = sc.nextDouble();
-		insertGame(gameName,price);
 
+		printGameCategory();
+		insertGame(gameName, price,getCategorySwitch());
 
 
 	}
 
-	private static void addStudio() {
-		System.out.println("Enter studio name: ");
-		String studioName = sc.nextLine();
-		insertStudio(studioName);
+	private static int getCategorySwitch() {
+		int category = 0;
+		switch (sc.nextInt()){
+			case 1 -> category = 1;
+			case 2 -> category = 2;
+			case 3 -> category = 3;
+			case 4 -> category = 4;
+			case 5 -> category = 5;
+
+		}
+		return category;
 	}
 
-	private static void printAddMenu() {
-		System.out.println("""
-				1. Add game
-				2. Add studio
-				3. Back to menu
-				""");
-	}
 
 	private static void show() {
 	}
@@ -82,8 +68,8 @@ public class Main {
 		return connection;
 	}
 
-	private static void selectAllFromStudio() {
-		String sql = "SELECT * FROM studio";
+	private static void selectAllFromGame() {
+		String sql = "SELECT * FROM game";
 
 		try (Connection conn = connect();
 			 Statement stmt = conn.createStatement()) {
@@ -91,8 +77,8 @@ public class Main {
 
 			// loop through the result set
 			while (rs.next()) {
-				System.out.println(rs.getInt("studioId") + "\t" +
-						rs.getString("studioName"));
+				System.out.println(rs.getInt("gameId") + "\t" +
+						rs.getString("gameName"));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -108,25 +94,26 @@ public class Main {
 			querty.executeUpdate();
 			System.out.println(studioName + " added");
 
-		}catch (SQLException e){
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	private static void insertGame(String gameName,double price) {
-		String sql = "INSERT INTO game(gameName, gamePrice) VALUES(?,?)";
+
+	private static void insertGame(String gameName, double price, int category) {
+		String sql = "INSERT INTO game(gameName, gamePrice, gameCategoryId) VALUES(?,?,?)";
 
 		try (Connection conn = connect();
 			 PreparedStatement query = conn.prepareStatement(sql)) {
 			query.setString(1, gameName);
-			query.setDouble(2,price);
+			query.setDouble(2, price);
+			query.setInt(3, category);
 			query.executeUpdate();
 			System.out.println(gameName + " added");
 
-		}catch (SQLException e){
+		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-
 
 
 	private static void printMenu() {
@@ -136,6 +123,17 @@ public class Main {
 				3. Update
 				4. Remove
 				e. Exit
+				""");
+	}
+
+	private static void printGameCategory() {
+		System.out.println("""
+				  Select category:
+						1. FPS
+						2. RTS
+						3. MMO
+						4. ADVENTURE
+						5. ACTION
 				""");
 	}
 

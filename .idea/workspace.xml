@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="add">
+    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="insertStudio, insertGame">
       <change afterPath="$PROJECT_DIR$/src/lektionSqliteCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/dbLabb3OliverSafstrom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/dbLabb3OliverSafstrom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/labb3.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/labb3.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +103,8 @@
       <workItem from="1670322641159" duration="2057000" />
       <workItem from="1670328011962" duration="3943000" />
       <workItem from="1670331965298" duration="47000" />
-      <workItem from="1670332020557" duration="3804000" />
+      <workItem from="1670332020557" duration="6174000" />
+      <workItem from="1670343061722" duration="335000" />
     </task>
     <task id="LOCAL-00001" summary="connect">
       <created>1670321363668</created>
@@ -159,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670336561956</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="insertStudio, insertGame">
+      <created>1670337793208</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670337793208</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +182,7 @@
     <MESSAGE value="db" />
     <MESSAGE value="menu" />
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="insertStudio, insertGame" />
+    <option name="LAST_COMMIT_MESSAGE" value="insertStudio, insertGame" />
   </component>
 </project>

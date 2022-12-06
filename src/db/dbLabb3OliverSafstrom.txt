@@ -1,11 +1,19 @@
-CREATE TABLE studio(
-studioId INTEGER PRIMARY KEY,
-studioName TEXT
-);
-
 CREATE TABLE game(
 gameId INTEGER PRIMARY KEY,
 gameName TEXT,
-gamePrice REAL
+gamePrice REAL,
+gameCategoryId INTEGER
 );
+CREATE TABLE category(
+categoryId INTEGER PRIMARY KEY,
+categoryName TEXT,
+categoryGameId INTEGER
+);
+
+INSERT INTO category
+VALUES (1,"FPS"),
+       (2,"RTS"),
+       (3, "MMO"),
+       (4,"ADVENTURE"),
+       (5,"ACTION");
 
