@@ -21,9 +21,8 @@ public class Main {
     private static void selectAllFromStudio() {
         String sql = "SELECT * FROM studio";
 
-        try {
-            Connection conn = connect();
-            Statement stmt = conn.createStatement();
+        try (Connection conn = connect();
+             Statement stmt = conn.createStatement();) {
             ResultSet rs = stmt.executeQuery(sql);
 
             // loop through the result set

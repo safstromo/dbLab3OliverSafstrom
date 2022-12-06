@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="connect">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="cleanup">
       <change afterPath="$PROJECT_DIR$/src/lektionSqliteCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +89,7 @@
       <updated>1670320653764</updated>
       <workItem from="1670320654921" duration="1781000" />
       <workItem from="1670322641159" duration="2057000" />
-      <workItem from="1670328011962" duration="3119000" />
+      <workItem from="1670328011962" duration="3480000" />
     </task>
     <task id="LOCAL-00001" summary="connect">
       <created>1670321363668</created>
@@ -101,7 +98,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670321363668</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="connect">
+      <created>1670331350457</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670331350457</updated>
+    </task>
+    <task id="LOCAL-00003" summary="cleanup">
+      <created>1670331413183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670331413183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="connect" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
 </project>
