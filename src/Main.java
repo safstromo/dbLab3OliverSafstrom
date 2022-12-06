@@ -9,7 +9,7 @@ public class Main {
     private static Connection connect() {
         Connection connection = null;
         try {
-            String url = "jdbc:sqlite:/home/eox/Documents/Yrkesutbildning/ITHS/Databaser/SQLite/labb3.db";
+            String url = "jdbc:sqlite:src/db/labb3.db";
             connection = DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -22,7 +22,7 @@ public class Main {
         String sql = "SELECT * FROM studio";
 
         try (Connection conn = connect();
-             Statement stmt = conn.createStatement();) {
+             Statement stmt = conn.createStatement()) {
             ResultSet rs = stmt.executeQuery(sql);
 
             // loop through the result set
