@@ -12,7 +12,7 @@ public class Main {
 			String menuInput = sc.nextLine();
 
 			printMenu();
-			switch (menuInput){
+			switch (menuInput) {
 				case "1" -> add();
 				case "2" -> show();
 				case "3" -> update();
@@ -23,11 +23,38 @@ public class Main {
 
 	}
 
-	private static void add(){}
+	private static void add() {
+		printAddMenu();
+		String input = sc.nextLine();
+		boolean exit = false;
+		while (!exit) {
+			switch (input) {
+				case "1" -> addGame();
+				case "2" -> addStudio();
+				case "e,E" -> exit = true;
+			}
+		}
 
-	private static void show() {}
-	private static void update(){}
-	private static void remove(){}
+	}
+	private static void addGame(){};
+	private static void addStudio(){};
+
+	private static void printAddMenu() {
+		System.out.println("""
+				1. Add game
+				2. Add studio
+				3. Back to menu
+				""");
+	}
+
+	private static void show() {
+	}
+
+	private static void update() {
+	}
+
+	private static void remove() {
+	}
 
 	private static Connection connect() {
 		Connection connection = null;
