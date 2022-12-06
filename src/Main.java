@@ -57,15 +57,15 @@ public class Main {
 
 	private static void remove() {
 		printRemoveMenu();
-		switch (sc.nextLine()) {
+		switch (getInput()) {
 			case "1" -> removeFrom(GAME);
 			case "2" -> removeFrom(CATEGORY);
 		}
-		getInput();
+
 	}
 
 	private static void removeFrom(String table) {
-		String sql = "DETELE FROM " + table + " WHERE " + table + "Id = ?";
+		String sql = "DELETE FROM " + table + " WHERE " + table + "Id = ?";
 
 		try (Connection conn = connect();
 			 PreparedStatement query = conn.prepareStatement(sql)) {
@@ -74,7 +74,7 @@ public class Main {
 			String input = getInput();
 			query.setInt(1, Integer.parseInt(input));
 			query.executeUpdate();
-			System.out.println(input + " removed");
+			System.out.println("ID "+ input + " removed");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
