@@ -6,12 +6,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		boolean exit = false;
-		selectAllFromStudio();
 
 		while (!exit) {
+			printMenu();
 			String menuInput = sc.nextLine();
 
-			printMenu();
 			switch (menuInput) {
 				case "1" -> add();
 				case "2" -> show();
@@ -27,17 +26,32 @@ public class Main {
 		printAddMenu();
 		String input = sc.nextLine();
 		boolean exit = false;
-		while (!exit) {
-			switch (input) {
-				case "1" -> addGame();
-				case "2" -> addStudio();
-				case "e,E" -> exit = true;
-			}
+
+		switch (input) {
+			case "1" -> addGame();
+			case "2" -> addStudio();
+			case "e,E" -> exit = true;
 		}
 
+
 	}
-	private static void addGame(){};
-	private static void addStudio(){};
+
+	private static void addGame() {
+		System.out.println("Enter game name: ");
+		String gameName = sc.nextLine();
+		System.out.println("Enter price: ");
+		double price = sc.nextDouble();
+		insertGame(gameName,price);
+
+
+
+	}
+
+	private static void addStudio() {
+		System.out.println("Enter studio name: ");
+		String studioName = sc.nextLine();
+		insertStudio(studioName);
+	}
 
 	private static void printAddMenu() {
 		System.out.println("""
@@ -84,6 +98,36 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 	}
+
+	private static void insertStudio(String studioName) {
+		String sql = "INSERT INTO studio(studioName) VALUES(?)";
+
+		try (Connection conn = connect();
+			 PreparedStatement querty = conn.prepareStatement(sql)) {
+			querty.setString(1, studioName);
+			querty.executeUpdate();
+			System.out.println(studioName + " added");
+
+		}catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+	private static void insertGame(String gameName,double price) {
+		String sql = "INSERT INTO game(gameName, gamePrice) VALUES(?,?)";
+
+		try (Connection conn = connect();
+			 PreparedStatement query = conn.prepareStatement(sql)) {
+			query.setString(1, gameName);
+			query.setDouble(2,price);
+			query.executeUpdate();
+			System.out.println(gameName + " added");
+
+		}catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+
+
 
 	private static void printMenu() {
 		System.out.println("""
