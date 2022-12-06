@@ -1,0 +1,11 @@
+CREATE TABLE studio(
+studioId INTEGER PRIMARY KEY,
+studioName TEXT
+);
+
+CREATE TABLE game(
+gameId INTEGER PRIMARY KEY,
+gameName TEXT,
+gamePrice REAL
+);
+

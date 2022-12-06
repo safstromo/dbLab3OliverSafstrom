@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="cleanup">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="db">
       <change afterPath="$PROJECT_DIR$/src/lektionSqliteCRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/dbLabb3OliverSafstrom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/dbLabb3OliverSafstrom.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/labb3.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/labb3.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/db" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -100,7 +103,7 @@
       <workItem from="1670322641159" duration="2057000" />
       <workItem from="1670328011962" duration="3943000" />
       <workItem from="1670331965298" duration="47000" />
-      <workItem from="1670332020557" duration="334000" />
+      <workItem from="1670332020557" duration="1873000" />
     </task>
     <task id="LOCAL-00001" summary="connect">
       <created>1670321363668</created>
@@ -130,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670331507493</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="db">
+      <created>1670332588278</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670332588278</updated>
+    </task>
+    <task id="LOCAL-00006" summary="db">
+      <created>1670332649982</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670332649982</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +157,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="connect" />
     <MESSAGE value="cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
+    <MESSAGE value="db" />
+    <option name="LAST_COMMIT_MESSAGE" value="db" />
   </component>
 </project>
