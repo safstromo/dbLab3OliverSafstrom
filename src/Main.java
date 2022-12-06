@@ -18,17 +18,6 @@ public class Main {
         return connection;
     }
 
-    private static Connection connect1() {
-        String url = "jdbc:sqlite:/home/eox/Documents/Yrkesutbildning/ITHS/Databaser/SQLite/labb3.db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
-    }
-
     private static void selectAllFromStudio() {
         String sql = "SELECT * FROM studio";
 
