@@ -2,6 +2,8 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
+	static final String GAME = "game";
+	static final String CATEGORY = "category";
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class Main {
 
 			switch (sc.nextLine()) {
 				case "1" -> addGame();
-				case "2" -> selectAllFrom("game");
+				case "2" -> selectAllFrom(GAME);
 				case "3" -> update();
 				case "4" -> remove();
 				case "e", "E" -> System.exit(0);
@@ -55,44 +57,26 @@ public class Main {
 
 	private static void remove() {
 		printRemoveMenu();
-		switch (sc.nextLine()){
-			case "1" -> removeGame();
-			case "2"-> removeCategory();
+		switch (sc.nextLine()) {
+			case "1" -> removeFrom(GAME);
+			case "2" -> removeFrom(CATEGORY);
 		}
 		getInput();
 	}
 
-	private static void removeGame() {
-		String sql = "DELETE FROM game WHERE gameId = ?";
+	private static void removeFrom(String table) {
+		String sql = "DETELE FROM " + table + " WHERE " + table + "Id = ?";
 
-		try(Connection conn = connect();
-		PreparedStatement query = conn.prepareStatement(sql)){
-			selectAllFrom("game");
-			System.out.println("Enter gameId to remove");
-			String input = getInput();
-			query.setInt(1, Integer.parseInt(input));
-			query.executeUpdate();
-			System.out.println(input + " removed");
-
-		}catch (Exception e){
-			System.out.println(e.getMessage());
-		}
-
-
-	}
-	private static void removeCategory() {
-		String sql = "DETELE FROM game WHERE categoryId = ?";
-
-		try(Connection conn = connect();
-			PreparedStatement query = conn.prepareStatement(sql)){
-			selectAllFrom("category");
+		try (Connection conn = connect();
+			 PreparedStatement query = conn.prepareStatement(sql)) {
+			selectAllFrom(table);
 			System.out.println("Enter ID to remove");
 			String input = getInput();
 			query.setInt(1, Integer.parseInt(input));
 			query.executeUpdate();
 			System.out.println(input + " removed");
 
-		}catch (Exception e){
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
@@ -100,7 +84,7 @@ public class Main {
 	}
 
 	private static String getInput() {
-	return 	sc.nextLine();
+		return sc.nextLine();
 	}
 
 	private static void printRemoveMenu() {
@@ -122,35 +106,22 @@ public class Main {
 		return connection;
 	}
 
-	private static void selectAllFrom(String from) {
-		String sql = "SELECT * FROM " + from;
+	private static void selectAllFrom(String table) {
+		String sql = "SELECT * FROM " + table;
 
 		try (Connection conn = connect();
 			 Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				System.out.println(rs.getInt(from+"Id") + "\t" +
-						rs.getString(from+"Name"));
+				System.out.println(rs.getInt(table + "Id") + "\t" +
+						rs.getString(table + "Name"));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	private static void insertStudio(String studioName) {
-		String sql = "INSERT INTO studio(studioName) VALUES(?)";
-
-		try (Connection conn = connect();
-			 PreparedStatement querty = conn.prepareStatement(sql)) {
-			querty.setString(1, studioName);
-			querty.executeUpdate();
-			System.out.println(studioName + " added");
-
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
-	}
 
 	private static void insertGame(String gameName, double price, int category) {
 		String sql = "INSERT INTO game(gameName, gamePrice, gameCategoryId) VALUES(?,?,?)";

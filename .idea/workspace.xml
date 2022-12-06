@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="insertStudio, insertGame">
+    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="remove">
       <change afterPath="$PROJECT_DIR$/src/lektionSqliteCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/dbLabb3OliverSafstrom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/dbLabb3OliverSafstrom.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,7 @@
       <workItem from="1670328011962" duration="3943000" />
       <workItem from="1670331965298" duration="47000" />
       <workItem from="1670332020557" duration="6174000" />
-      <workItem from="1670343061722" duration="2312000" />
+      <workItem from="1670343061722" duration="3032000" />
     </task>
     <task id="LOCAL-00001" summary="connect">
       <created>1670321363668</created>
@@ -175,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670343407418</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remove">
+      <created>1670348371650</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670348371650</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +195,7 @@
     <MESSAGE value="menu" />
     <MESSAGE value="add" />
     <MESSAGE value="insertStudio, insertGame" />
-    <option name="LAST_COMMIT_MESSAGE" value="insertStudio, insertGame" />
+    <MESSAGE value="remove" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove" />
   </component>
 </project>
