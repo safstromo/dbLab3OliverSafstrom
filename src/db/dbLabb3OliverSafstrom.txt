@@ -4,6 +4,7 @@ gameName TEXT,
 gamePrice REAL,
 gameCategoryId INTEGER
 );
+
 CREATE TABLE category(
 categoryId INTEGER PRIMARY KEY,
 categoryName TEXT,
