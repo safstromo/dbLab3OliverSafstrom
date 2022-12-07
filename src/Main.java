@@ -18,6 +18,7 @@ public class Main {
 				case "4" -> remove();
 				case "e", "E" -> System.exit(0);
 			}
+
 		}
 
 	}
@@ -40,14 +41,14 @@ public class Main {
 		System.out.println("Enter category ID: ");
 		int category = sc.nextInt();
 
-		insertGame(gameName, price, category);
+		insert(gameName, price, category);
 		sc.nextLine();
 	}
 
 	private static void addCategory() {
 		System.out.println("Enter category name: ");
 		String name = getInput();
-		insertCategory(name);
+		insert(name);
 	}
 
 
@@ -231,7 +232,7 @@ public class Main {
 		getInput();
 	}
 
-	private static void insertGame(String gameName, double price, int category) {
+	private static void insert(String gameName, double price, int category) {
 		String sql = "INSERT INTO game(gameName, gamePrice, gameCategoryId) VALUES(?,?,?)";
 
 		try (Connection conn = connect();
@@ -247,7 +248,7 @@ public class Main {
 		}
 	}
 
-	private static void insertCategory(String categoryName) {
+	private static void insert(String categoryName) {
 		String sql = "INSERT INTO category(categoryName) VALUES(?)";
 
 		try (Connection conn = connect();
@@ -281,16 +282,6 @@ public class Main {
 				""");
 	}
 
-	private static void printGameCategory() {
-		System.out.println("""
-				Select category:
-				1. FPS
-				2. RTS
-				3. MMO
-				4. ADVENTURE
-				5. ACTION
-				""");
-	}
 
 	private static void printShowMenu() {
 		System.out.println("""
