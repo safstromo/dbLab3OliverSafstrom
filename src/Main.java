@@ -51,7 +51,6 @@ public class Main {
 		insert(name);
 	}
 
-
 	private static void show() {
 		printShowMenu();
 
@@ -263,7 +262,6 @@ public class Main {
 		}
 	}
 
-
 	private static void printMenu() {
 		System.out.println("""
 				1. Add
@@ -281,7 +279,6 @@ public class Main {
 				2. Category
 				""");
 	}
-
 
 	private static void printShowMenu() {
 		System.out.println("""
