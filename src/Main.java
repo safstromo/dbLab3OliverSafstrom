@@ -13,7 +13,7 @@ public class Main {
 
 			switch (sc.nextLine()) {
 				case "1" -> addGame();
-				case "2" -> selectAllFrom(GAME);
+				case "2" -> selectAllInnerJoin();
 				case "3" -> update();
 				case "4" -> remove();
 				case "e", "E" -> System.exit(0);
@@ -74,7 +74,7 @@ public class Main {
 			String input = getInput();
 			query.setInt(1, Integer.parseInt(input));
 			query.executeUpdate();
-			System.out.println("ID "+ input + " removed");
+			System.out.println("ID " + input + " removed");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -116,6 +116,26 @@ public class Main {
 			while (rs.next()) {
 				System.out.println(rs.getInt(table + "Id") + "\t" +
 						rs.getString(table + "Name"));
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	private static void selectAllInnerJoin() {
+		String sql = "SELECT * FROM game INNER JOIN category ON game.gameCategoryId = category.categoryId";
+
+		try (Connection conn = connect();
+			 Statement stmt = conn.createStatement()) {
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				System.out.println("GameId: " + rs.getInt("gameId") + "\t" +
+						"Name: " + rs.getString("gameName") + "\t" +
+						"Price: " + rs.getInt("gamePrice") + "\t" +
+						"Category: " + rs.getString("categoryName") + "\n");
+				System.out.println("Press any key to continue.....");
+				getInput();
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
