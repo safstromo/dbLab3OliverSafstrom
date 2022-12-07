@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="selectAllInnerJoin">
+    <list default="true" id="453d2756-9b67-4587-a440-a6b358b5397d" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/labb3.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/labb3.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +103,7 @@
       <workItem from="1670331965298" duration="47000" />
       <workItem from="1670332020557" duration="6174000" />
       <workItem from="1670343061722" duration="3638000" />
-      <workItem from="1670400393686" duration="2831000" />
+      <workItem from="1670400393686" duration="4320000" />
     </task>
     <task id="LOCAL-00001" summary="connect">
       <created>1670321363668</created>
@@ -202,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670404016075</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update">
+      <created>1670408146998</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670408146998</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +228,7 @@
     <MESSAGE value="removeFROM," />
     <MESSAGE value="fix" />
     <MESSAGE value="selectAllInnerJoin" />
-    <option name="LAST_COMMIT_MESSAGE" value="selectAllInnerJoin" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
 </project>

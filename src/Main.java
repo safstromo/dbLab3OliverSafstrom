@@ -55,6 +55,24 @@ public class Main {
 		switch (getInput()) {
 			case "1" -> selectAllInnerJoin();
 			case "2" -> searchForGame();
+			case "3" -> countGames();
+		}
+	}
+
+	private static void countGames() {
+		String sql = "SELECT COUNT(*) FROM game";
+
+		try (Connection conn = connect();
+			 Statement query = conn.createStatement()) {
+			ResultSet rs = query.executeQuery(sql);
+
+			while (rs.next()) {
+				System.out.println("Number of game in database: " + rs.getInt("COUNT(*)"));
+				System.out.println("Press any key to continue.....");
+				getInput();
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -83,7 +101,7 @@ public class Main {
 	private static void update() {
 		printUpdateMenu();
 
-		switch (getInput()){
+		switch (getInput()) {
 			case "1" -> updateCategoryName();
 			case "2" -> updateGamePrice();
 		}
@@ -91,6 +109,23 @@ public class Main {
 	}
 
 	private static void updateGamePrice() {
+		String sql = "UPDATE game SET gamePrice = ? WHERE gameId = ?";
+
+		try (Connection conn = connect();
+			 PreparedStatement query = conn.prepareStatement(sql)) {
+			selectAllFrom(GAME);
+			System.out.println("Enter ID to update");
+			String input = getInput();
+			query.setInt(2, Integer.parseInt(input));
+			System.out.println("Enter new price: ");
+			query.setString(1, getInput());
+			query.executeUpdate();
+			System.out.println("ID " + input + " updated");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 
 	private static void updateCategoryName() {
@@ -103,7 +138,7 @@ public class Main {
 			String input = getInput();
 			query.setInt(2, Integer.parseInt(input));
 			System.out.println("Enter new name: ");
-			query.setString(1,getInput());
+			query.setString(1, getInput());
 			query.executeUpdate();
 			System.out.println("ID " + input + " updated");
 
@@ -165,6 +200,7 @@ public class Main {
 				What do you want to see?
 				1. Show from all tables
 				2. Search for game
+				3. Number of games in database
 				""");
 	}
 
@@ -188,8 +224,9 @@ public class Main {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				System.out.println(rs.getInt(table + "Id") + "\t" +
-						rs.getString(table + "Name"));
+				System.out.println("ID: " + rs.getInt(table + "Id") + "\t" +
+						"Name: " + rs.getString(table + "Name")
+				);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -208,12 +245,12 @@ public class Main {
 						"Name: " + rs.getString("gameName") + "\t" +
 						"Price: " + rs.getInt("gamePrice") + "\t" +
 						"Category: " + rs.getString("categoryName") + "\n");
-				System.out.println("Press any key to continue.....");
-				getInput();
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		System.out.println("Press any key to continue.....");
+		getInput();
 	}
 
 
