@@ -229,6 +229,7 @@ public class Main {
 		}
 		System.out.println("Press any key to continue.....");
 		getInput();
+		sc.nextLine();
 	}
 
 	private static void insert(String gameName, double price, int category) {
