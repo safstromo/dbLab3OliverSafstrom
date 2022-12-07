@@ -13,7 +13,7 @@ public class Main {
 
 			switch (sc.nextLine()) {
 				case "1" -> addGame();
-				case "2" -> selectAllInnerJoin();
+				case "2" -> show();
 				case "3" -> update();
 				case "4" -> remove();
 				case "e", "E" -> System.exit(0);
@@ -50,9 +50,75 @@ public class Main {
 
 
 	private static void show() {
+		printShowMenu();
+
+		switch (getInput()) {
+			case "1" -> selectAllInnerJoin();
+			case "2" -> searchForGame();
+		}
+	}
+
+	private static void searchForGame() {
+		String sql = "SELECT * FROM game INNER JOIN category ON game.gameCategoryId = category.categoryId WHERE gameName = ?";
+
+		try (Connection conn = connect();
+			 PreparedStatement query = conn.prepareStatement(sql)) {
+			System.out.println("Enter game name: ");
+			query.setString(1, getInput());
+			ResultSet rs = query.executeQuery();
+
+			while (rs.next()) {
+				System.out.println("GameId: " + rs.getInt("gameId") + "\t" +
+						"Name: " + rs.getString("gameName") + "\t" +
+						"Price: " + rs.getInt("gamePrice") + "\t" +
+						"Category: " + rs.getString("categoryName") + "\n");
+				System.out.println("Press any key to continue.....");
+				getInput();
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	private static void update() {
+		printUpdateMenu();
+
+		switch (getInput()){
+			case "1" -> updateCategoryName();
+			case "2" -> updateGamePrice();
+		}
+
+	}
+
+	private static void updateGamePrice() {
+	}
+
+	private static void updateCategoryName() {
+		String sql = "UPDATE category SET categoryName = ? WHERE categoryId = ?";
+
+		try (Connection conn = connect();
+			 PreparedStatement query = conn.prepareStatement(sql)) {
+			selectAllFrom(CATEGORY);
+			System.out.println("Enter ID to update");
+			String input = getInput();
+			query.setInt(2, Integer.parseInt(input));
+			System.out.println("Enter new name: ");
+			query.setString(1,getInput());
+			query.executeUpdate();
+			System.out.println("ID " + input + " updated");
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	private static void printUpdateMenu() {
+		System.out.println("""
+				What do you want to update?
+				1. Category name
+				2. Game price
+				""");
 	}
 
 	private static void remove() {
@@ -92,6 +158,14 @@ public class Main {
 				Do you want to remove from :
 				1. Game
 				2. Category""");
+	}
+
+	private static void printShowMenu() {
+		System.out.println("""
+				What do you want to see?
+				1. Show from all tables
+				2. Search for game
+				""");
 	}
 
 	private static Connection connect() {
