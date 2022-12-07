@@ -12,7 +12,7 @@ public class Main {
 			printMenu();
 
 			switch (sc.nextLine()) {
-				case "1" -> addGame();
+				case "1" -> add();
 				case "2" -> show();
 				case "3" -> update();
 				case "4" -> remove();
@@ -22,30 +22,34 @@ public class Main {
 
 	}
 
+	private static void add() {
+		printAddMenu();
+		switch (getInput()){
+			case "1" -> addGame();
+			case "2" -> addCategory();
+		}
+	}
+
 	private static void addGame() {
 		System.out.println("Enter game name: ");
 		String gameName = getInput();
 
 		System.out.println("Enter price: ");
 		double price = sc.nextDouble();
+		selectAllFrom(CATEGORY);
+		System.out.println("Enter category ID: ");
+		int category = sc.nextInt();
 
-		printGameCategory();
-		insertGame(gameName, price, getCategorySwitch());
+		insertGame(gameName, price, category);
 		sc.nextLine();
 	}
 
-	private static int getCategorySwitch() {
-		int category = 0;
-		switch (sc.nextInt()) {
-			case 1 -> category = 1;
-			case 2 -> category = 2;
-			case 3 -> category = 3;
-			case 4 -> category = 4;
-			case 5 -> category = 5;
-
-		}
-		return category;
+	private static void addCategory() {
+		System.out.println("Enter category name: ");
+		String name = getInput();
+		insertCategory(name);
 	}
+
 
 	private static void show() {
 		printShowMenu();
@@ -243,6 +247,21 @@ public class Main {
 		}
 	}
 
+	private static void insertCategory(String categoryName) {
+		String sql = "INSERT INTO category(categoryName) VALUES(?)";
+
+		try (Connection conn = connect();
+			 PreparedStatement query = conn.prepareStatement(sql)) {
+			query.setString(1, categoryName);
+
+			query.executeUpdate();
+			System.out.println(categoryName + " added");
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 
 	private static void printMenu() {
 		System.out.println("""
@@ -251,6 +270,14 @@ public class Main {
 				3. Update
 				4. Remove
 				e. Exit
+				""");
+	}
+
+	private static void printAddMenu() {
+		System.out.println("""
+				To what table do you want to add?
+				1. Game
+				2. Category
 				""");
 	}
 
