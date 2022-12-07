@@ -31,8 +31,7 @@ public class Main {
 
 		printGameCategory();
 		insertGame(gameName, price, getCategorySwitch());
-
-
+		sc.nextLine();
 	}
 
 	private static int getCategorySwitch() {
@@ -47,7 +46,6 @@ public class Main {
 		}
 		return category;
 	}
-
 
 	private static void show() {
 		printShowMenu();
@@ -148,14 +146,6 @@ public class Main {
 
 	}
 
-	private static void printUpdateMenu() {
-		System.out.println("""
-				What do you want to update?
-				1. Category name
-				2. Game price
-				""");
-	}
-
 	private static void remove() {
 		printRemoveMenu();
 		switch (getInput()) {
@@ -186,22 +176,6 @@ public class Main {
 
 	private static String getInput() {
 		return sc.nextLine();
-	}
-
-	private static void printRemoveMenu() {
-		System.out.println(""" 
-				Do you want to remove from :
-				1. Game
-				2. Category""");
-	}
-
-	private static void printShowMenu() {
-		System.out.println("""
-				What do you want to see?
-				1. Show from all tables
-				2. Search for game
-				3. Number of games in database
-				""");
 	}
 
 	private static Connection connect() {
@@ -253,7 +227,6 @@ public class Main {
 		getInput();
 	}
 
-
 	private static void insertGame(String gameName, double price, int category) {
 		String sql = "INSERT INTO game(gameName, gamePrice, gameCategoryId) VALUES(?,?,?)";
 
@@ -283,12 +256,36 @@ public class Main {
 
 	private static void printGameCategory() {
 		System.out.println("""
-				  Select category:
-						1. FPS
-						2. RTS
-						3. MMO
-						4. ADVENTURE
-						5. ACTION
+				Select category:
+				1. FPS
+				2. RTS
+				3. MMO
+				4. ADVENTURE
+				5. ACTION
+				""");
+	}
+
+	private static void printShowMenu() {
+		System.out.println("""
+				What do you want to see?
+				1. Show from all tables
+				2. Search for game
+				3. Number of games in database
+				""");
+	}
+
+	private static void printRemoveMenu() {
+		System.out.println(""" 
+				Do you want to remove from :
+				1. Game
+				2. Category""");
+	}
+
+	private static void printUpdateMenu() {
+		System.out.println("""
+				What do you want to update?
+				1. Category name
+				2. Game price
 				""");
 	}
 
